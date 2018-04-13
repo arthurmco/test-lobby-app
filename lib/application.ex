@@ -1,5 +1,6 @@
 defmodule TestLobbyApp.Application do
   use Application
+  require Logger
   
   @moduledoc """
   TestLobbyApp entry point
@@ -18,6 +19,14 @@ defmodule TestLobbyApp.Application do
   def start(_type, _args) do
     IO.puts("Hello")
     end_game()
+
+    Logger.info "App starting"
+    children = [
+      Plug.Adapters.Cowboy.child_spec(:http, TestLobbyApp.Plug, [], port: 8080)
+    ]
+
+    Logger.info "App started"
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 
   def hello do
