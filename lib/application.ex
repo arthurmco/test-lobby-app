@@ -22,7 +22,7 @@ defmodule TestLobbyApp.Application do
 
     Logger.info "App starting"
     children = [
-      Plug.Adapters.Cowboy.child_spec(:http, TestLobbyApp.Plug, [], port: 8080)
+      Plug.Adapters.Cowboy.child_spec(:http, TestLobbyApp.Router, [], port: 8080)
     ]
 
     Logger.info "App started"
