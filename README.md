@@ -1,6 +1,10 @@
 # TestLobbyApp
 
-**TODO: Add description**
+a toy application in Elixir to learn. Just that
+
+The only thing remaining is to add tests.
+
+It's so toy that I'll let the things below 
 
 ## Installation
 

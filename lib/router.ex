@@ -9,10 +9,12 @@ defmodule TestLobbyApp.Router do
   plug :match
   plug :dispatch
 
+  # This is how you forward to the API
   forward "/api",
     to: Absinthe.Plug,
     init_opts: [schema: TestLobbyApp.Schema]
 
+  # This is how you forward to the GraphiQL, the tester
   forward "/graphiql",
     to: Absinthe.Plug.GraphiQL,
     init_opts: [schema: TestLobbyApp.Schema]
